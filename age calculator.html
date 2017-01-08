@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<body style=" font-size:30px;  font-family: 'Comic Sans MS', cursive, sans-serif ;color:#1865AD;" onload="tody()">
+<h1 align="center" style="border:1px solid #1865AD; margin-top:0px; padding:20px; color:white; background-color:#1865AD">Age Calculator</h1>
+<script>
+function calculate()
+{
+var str=document.getElementById("mydate").value;
+var x=false;
+var y=false;
+if(str=="")
+x=true;
+var arr=str.split("-");
+var dob=new Date(arr[1]+"/"+arr[2]+"/"+arr[0]);
+var str=document.getElementById("mdates").value;
+if(str=="")
+y=true;
+if(x){
+alert("Please! select Date of Birth :)");
+}
+else
+if(y){
+alert("Please! select Age at the date of :)");
+}
+else{
+var arr=str.split("-");
+var today=new Date(arr[1]+"/"+arr[2]+"/"+arr[0]);
+alert(today);
+var diff=Math.abs((today.getTime()-dob.getTime()));
+alert((diff/(1000*60*60*24*365)));
+var fra=(diff/(1000*60*60*24*365));
+fra=fra-Math.floor(fra);
+var age=Math.floor(diff/(1000*60*60*24*365));
+var msec=Math.floor(diff);
+var sec=Math.floor(diff/1000);
+var min=Math.floor(sec/(60));
+var hr=Math.floor(min/(60));
+var dy=Math.floor(hr/(24));
+var yr=Math.floor(dy/(365));
+var bor="";
+if(msec==0)
+bor="You Born Today ";
+document.getElementById("op").innerHTML=bor+"<br>Age:<br>or "+age+" Years<br>or "+dy+" Days<br>or "+hr+" Hours<br>or "+min+" Minutes<br>or "+sec+" Seconds<br>or "+msec+" milliseconds<br>";
+}
+} 
+function tody(){
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd
+} 
+if(mm<10) 
+{
+    mm='0'+mm
+} 
+today = yyyy+"-"+mm+"-"+dd;
+document.getElementById("mdates").value=(today);
+}
+</script>
+<form >
+<table style=" font-size:30px; border:1px solid black; padding:20px;margin:auto; font-family: 'Comic Sans MS', cursive, sans-serif ;background-color:#1865AD;color:white">
+<tr><td>Date of Birth:</td><td><input type="date" id="mydate" style="padding:10px; font-size:30px"></td></tr>
+<tr><td>Age at the Date of	:</td><td><input type="date" id="mdates" style="padding:10px; font-size:30px" readonly></td></tr>
+<tr><td><input type="button" value="Calculate" onclick="calculate()" style="padding:10px;font-size:20px"></td></tr>
+</table>
+</form>
+<p id="op"  style="margin:auto"></p>
+</body>
+</html>
