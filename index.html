@@ -25,9 +25,9 @@ alert("Please! select Age at the date of :)");
 else{
 var arr=str.split("-");
 var today=new Date(arr[1]+"/"+arr[2]+"/"+arr[0]);
-alert(today);
+//alert(today);
 var diff=Math.abs((today.getTime()-dob.getTime()));
-alert((diff/(1000*60*60*24*365)));
+//alert((diff/(1000*60*60*24*365)));
 var fra=(diff/(1000*60*60*24*365));
 fra=fra-Math.floor(fra);
 var age=Math.floor(diff/(1000*60*60*24*365));
@@ -62,7 +62,7 @@ document.getElementById("mdates").value=(today);
 <form >
 <table style=" font-size:30px; border:1px solid black; padding:20px;margin:auto; font-family: 'Comic Sans MS', cursive, sans-serif ;background-color:#1865AD;color:white">
 <tr><td>Date of Birth:</td><td><input type="date" id="mydate" style="padding:10px; font-size:30px"></td></tr>
-<tr><td>Age at the Date of	:</td><td><input type="date" id="mdates" style="padding:10px; font-size:30px" readonly></td></tr>
+<tr><td>Age at the Date of	:</td><td><input type="date" id="mdates" style="padding:10px; font-size:30px"></td></tr>
 <tr><td><input type="button" value="Calculate" onclick="calculate()" style="padding:10px;font-size:20px"></td></tr>
 </table>
 </form>
